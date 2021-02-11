@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "791990956478",
+    "firebase_url": "https://binta-614f1.firebaseio.com",
+    "project_id": "binta-614f1",
+    "storage_bucket": "binta-614f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791990956478:android:0a8f28b2cdf224cbc9c9ef",
+        "android_client_info": {
+          "package_name": "com.oopatrick.binta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "791990956478-tndi9ipieljnue1ioisqp1urqhjvins8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.oopatrick.binta",
+            "certificate_hash": "833b203988960eb7e775e57265c4615cb137f63d"
+          }
+        },
+        {
+          "client_id": "791990956478-9i4kuc26cd89h0mj57a4lt7scmm67vuk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8cnjIi3mCrqX4_PXiwFCGYZPcqfT2oGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "791990956478-9i4kuc26cd89h0mj57a4lt7scmm67vuk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
