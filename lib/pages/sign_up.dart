@@ -1,4 +1,3 @@
-import 'package:Binta/pages/home.dart';
 import 'package:Binta/pages/sign_in.dart';
 import 'package:Binta/services/auth.dart';
 import 'package:Binta/shared/spinner.dart';
@@ -6,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../shared/colors.dart';
+import 'homepage.dart';
 
 class SignUp extends StatefulWidget {
   final Function toggleView;
@@ -319,7 +319,7 @@ class _SignUpState extends State<SignUp> {
                                       await _auth.registerWithEmailAndPassword(
                                           email, password);
                                   if (user != null) {
-                                    Get.off(Home());
+                                    Get.off(HomePage());
                                   }
                                   if (user == null) {
                                     setState(() {
@@ -370,7 +370,7 @@ class _SignUpState extends State<SignUp> {
                                 });
                                 dynamic user = await _auth.signInWithGoogle();
                                 if (user != null) {
-                                  Get.off(Home());
+                                  Get.off(HomePage());
                                 }
 
                                 if (user == null) {

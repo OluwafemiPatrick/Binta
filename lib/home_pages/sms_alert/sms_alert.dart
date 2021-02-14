@@ -109,7 +109,7 @@ class SmsEmergencyAlert extends StatelessWidget {
           Get.to(
             SetupEmergencyAlert(),
             transition: Transition.leftToRight,
-            duration: Duration(milliseconds: 300),
+            duration: Duration(milliseconds: 500),
           );
         },
       ),

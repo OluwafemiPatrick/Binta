@@ -14,19 +14,21 @@ class Services extends StatefulWidget {
 
 class _ServicesState extends State<Services> {
   List<String> images = [
-    'lib/shared/assets/services_images/case_management.png',
-    'lib/shared/assets/services_images/case_management.png',
-    'lib/shared/assets/services_images/case_management.png',
-    'lib/shared/assets/services_images/case_management.png',
-    'lib/shared/assets/services_images/case_management.png',
+    'assets/images/serrice_advocacy.png',
+    'assets/images/service_counselling.png',
+    'assets/images/service_sexual_right.png',
+    'assets/images/service_case_management.png',
+    'assets/images/service_prevention.png',
   ];
+
   List<String> names = [
     'Advocacy',
     'General Counselling \n Therapy',
     'Sexual and \n Reproductive Health \n Rights',
-    'Case Managemnet \n Services ',
+    'Case Management \n Services ',
     'Prevention Support'
   ];
+
   List<Widget> servicesPages = [
     Services1(),
     Services2(),
@@ -34,102 +36,68 @@ class _ServicesState extends State<Services> {
     Services4(),
     Services5()
   ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: colorWhite,
       appBar: AppBar(
-        elevation: 0,
-        title: Text(
-          'Services',
-          style: TextStyle(
-            color: colorPurpleBright,
-            fontSize: 25,
-          ),
-        ),
-        centerTitle: true,
-        iconTheme: IconThemeData(color: colorPurpleBright, size: 10),
-        backgroundColor: colorWhite,
+          elevation: 1,
+          backgroundColor: colorWhite,
+          iconTheme: IconThemeData(color: colorPrimaryPurple, size: 10),
+          centerTitle: true,
+          title: Text('Services', style: TextStyle(color: colorPrimaryPurple),)
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 16.0),
+        padding: const EdgeInsets.only(top: 16.0, left: 10.0, right: 10.0),
         child: Stack(
           fit: StackFit.expand,
           children: [
-            Positioned(
-              top: 0,
+            Opacity(
+              opacity: 0.2,
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.685,
+                height: MediaQuery.of(context).size.height * 0.6,
                 width: MediaQuery.of(context).size.width,
-                child: Image.asset(
-                    'lib/shared/assets/images/binta_logo_full_only.png'),
+                child: Image.asset('lib/shared/assets/images/binta_logo_full_only.png'),
               ),
-            ),
-            Positioned(
-              child: Container(
-                  height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width,
-                  color: colorWhite.withOpacity(0.7)),
             ),
             GridView.builder(
                 shrinkWrap: true,
                 itemCount: 5,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 9.0 / 10.0,
+                    childAspectRatio: 0.85,
                     crossAxisCount: 2,
                     mainAxisSpacing: 0),
                 itemBuilder: (BuildContext context, int index) {
-                  return new Container(
-                    color: Colors.transparent,
-                    child: Padding(
-                      padding: EdgeInsets.all(15.0),
-                      child: GestureDetector(
-                        // clipBehavior: Clip.antiAlias,
-                        // semanticContainer: true,
-                        // shape: RoundedRectangleBorder(
-                        //   borderRadius: BorderRadius.circular(16.0),
-                        // ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              flex: 2,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20.0),
-                                    border: Border.all(
-                                        width: 7, color: colorPurpleBright)),
-                                child: Opacity(
-                                    opacity: 0.8,
-                                    child: Image.asset(images[index])),
-                              ),
-                            ),
-                            Expanded(
-                              // flex: 1,
-                              child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      names[index],
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ]),
-                            )
-                          ],
+                  return GestureDetector(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20.0),
+                                border: Border.all(width: 4, color: colorPurpleBright)),
+                            child: Image.asset(images[index]),
+                          ),
                         ),
-                        onTap: () {
-                          print(index);
-                          Get.to(
-                            servicesPages[index],
-                            transition: index % 2 == 0
-                                ? Transition.leftToRight
-                                : Transition.rightToLeft,
-                            duration: Duration(milliseconds: 600),
-                          );
-                        },
-                      ),
+                        SizedBox(height: 8.0,),
+                        Expanded(
+                          child: Text(names[index], textAlign: TextAlign.center,),
+                        )
+                      ],
                     ),
+                    onTap: () {
+                      Get.to(
+                        servicesPages[index],
+                        transition: index % 2 == 0
+                            ? Transition.leftToRight
+                            : Transition.rightToLeft,
+                        duration: Duration(milliseconds: 600),
+                      );
+                    },
                   );
                 }),
           ],

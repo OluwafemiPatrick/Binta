@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "binta-614f1",
+  "private_key_id": "8bee497d453d4b96fb461418c88f77e32673a396",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDbzI4+u1XHn6cG\n8jz21lNmTQGEsHbUKNQXwbw/Fs3NCxa7t8OkBgBQZ6lwqEB6dlWiieAto5MTJTKm\nXVpSgFlnTflJ2h6e2upjIBJITXrqBuzo9CCvl+5DlHLS8ifuWXSZgqvl39yjwtSc\nLxQRxTsJbFA442QW8f7CAK6bUNBuZ/N5hxz63H/9ytWGPozQecP1NtiYfqbDFnJw\n14OL7hDOPTYTN8wS1A/XzP0VUElN5kjDTCEFa8w59WvtaLCA4wyDjmorziVWFYTl\nK+M3Tnf1NDoDZj2Kt5B0DZmbwMu0TCxh0UI/721e14nDaaH5KNCBYkQfXBsDJWct\nGsy88oSpAgMBAAECggEAIeFYE8dgo5KydlmkmA/VbzFziHaC+pUIjFjqoXbsZizN\nZkYfPAtIxRwVfC4TMk1HSfSiv6Y1J4BWXFqLb6glH81fHcknayknc/wflVGMHsLO\nheILn8V1jqk1Qdrd2NmlJXyE7rwhEIUZrLF9EHgsb3lorDww03Cd6l2cjIhaeIn4\nVT34IR0CFWI/S6ONl1SG+PAaZdc7wj+KGwQBiqjCIkz6Lzq6PuLuWx4gmI1gPygx\ndG661s0qWVClEQEXKDtJU5X3F4ca4z+voBAm1JpVEozDA0StEdhz/CCej1SQ3mAw\ngiuidLqOgXk/myhCR1dC3hFNYA6ylj1oLSiNJQBSYQKBgQDwNOcqiYeEcL/z3AwF\nw854TE/OLHEsuC4nM/FDyWMHG5NizZzFRwM8vlElP7HYQh7ooz87cUxYE5rrIM1D\n5h2OQ0GR378vAjqqDVL0jL8VNyOccFoBYhwT6NcCq7R7WdrcfdgnIlpZamBVOk5S\nd/2DMEdWXm15C0Rq7xBBJcIXjQKBgQDqQCgy700YrwrdQh+kbFsOf7h61qX9+9JW\n1IpLwUS4bRkc6LssQr0txS+FjwSmJfiFxE81apAK0XwloR36yaRbj9b9W/fKH3wb\nKpFYXzc0mTj4Zcu0+UgRB8bd5SxkJYCygrVtnkqk22I+6lH2DyTcKJrq4YT+MAkq\nml4DNsC8jQKBgHjUs+BC9Geb7AM4ktenisoa4R4+XuP29kiEKX5G5Mijh31xHsZi\nFW/N8LXDF6xIfpHZ5Kn7MUMxAYH7qyXXsNBqZqaBngOApI/8Sdl4n3qFlSVRowUF\nHEirnNTcGNrf9Wdq6nutHTPTfggBX3q+n0kJ1SjOMVVtZIpCHbQX0U3VAoGBAKdk\nkVVUi9NHwou55MKqa6dAvaOKH7QPb4988haQVXs0+u0doiNOzcEXV44pVTkliSKN\n1cxmCeixKfX53GKKFVkYwJjsT3Wwag8/q/1qjRiZJYzbsWXxfP4ugH2wdrhZ1E27\n+coLg2urGdm7uDYNPFnW6l1OKqs5yFMZXHUPe0tBAoGAKXbMwWf2YNqhA0RL74Gm\nuqYEzwOVl7XatFznO5VfivSZpFxdxfxD6t6ylfS+jT7YUJBsA4eDuvr7PCSEog1Q\nNvftV+Tq3u2e+Y518hWGKIipZN5P3g/yVZzwwseiXFzxpuW6Ajlr/Qrw5hhoqfMl\nLZ5XJxJwW6kP4cFwNuCYCME=\n-----END PRIVATE KEY-----\n",
+  "client_email": "bintabot@binta-614f1.iam.gserviceaccount.com",
+  "client_id": "106976338106544545294",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/bintabot%40binta-614f1.iam.gserviceaccount.com"
+}

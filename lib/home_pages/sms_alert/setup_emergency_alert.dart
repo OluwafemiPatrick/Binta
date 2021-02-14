@@ -1,3 +1,4 @@
+import 'package:Binta/home_pages/sms_alert/contact_select.dart';
 import 'package:Binta/shared/colors.dart';
 import 'package:Binta/shared/toast_message.dart';
 import 'package:contacts_service/contacts_service.dart';
@@ -98,8 +99,13 @@ class _SetupEmergencyAlertState extends State<SetupEmergencyAlert> {
               GestureDetector(
                 child: Icon(Icons.add_circle_outline_sharp, size: 60.0, color: colorBlack),
                 onTap: () async {
-                  Iterable<Contact> contacts = await ContactsService.getContacts(withThumbnails: false);
-                  toastMessage(contacts.length.toString());
+                  // List<Contact> contacts = await ContactsService.getContacts(withThumbnails: false);
+                  // toastMessage(contacts.length.toString());
+                  Get.to(
+                    SelectContacts(),
+                    transition: Transition.leftToRight,
+                    duration: Duration(milliseconds: 500),
+                  );
                 },
               ),
               Text(_contactName2, style: TextStyle(fontSize: 14.0)),
@@ -210,7 +216,7 @@ class _SetupEmergencyAlertState extends State<SetupEmergencyAlert> {
           Get.to(
             SetupEmergencyAlert(),
             transition: Transition.rightToLeft,
-            duration: Duration(milliseconds: 200),
+            duration: Duration(milliseconds: 500),
           );
         },
       ),

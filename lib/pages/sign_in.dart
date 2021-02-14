@@ -1,4 +1,3 @@
-import 'package:Binta/pages/home.dart';
 import 'package:Binta/pages/sign_up.dart';
 import 'package:Binta/services/auth.dart';
 import 'package:Binta/shared/spinner.dart';
@@ -6,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../shared/colors.dart';
+import 'homepage.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -215,7 +215,7 @@ class _SignInState extends State<SignIn> {
                                           'could not sign in with these credentials';
                                     });
                                   } else {
-                                    Get.off(Home());
+                                    Get.off(HomePage());
                                   }
                                 }
                               },
@@ -248,7 +248,7 @@ class _SignInState extends State<SignIn> {
                                 });
                                 dynamic user = await _auth.signInWithGoogle();
                                 if (user != null) {
-                                  Get.off(Home());
+                                  Get.off(HomePage());
                                 }
                                 if (user == null) {
                                   setState(() {

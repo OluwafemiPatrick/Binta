@@ -4,7 +4,7 @@ class Drawer5 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("Live Support"),
+      child: Text("The Team"),
     );
   }
 }

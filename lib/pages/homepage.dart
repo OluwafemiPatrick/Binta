@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
     Drawer5(),
     Drawer6(),
     Drawer7(),
-    Drawer8()
+    Drawer8(),
   ];
 
   @override
@@ -72,10 +72,10 @@ class _HomePageState extends State<HomePage> {
               leading: Icon(
                 Icons.circle,
                 color: colorPurpleBright,
-                size: 20,
+                size: 16,
               ),
               title: Text('What is Binta ?',
-                textScaleFactor: 1.3),
+                textScaleFactor: 1.2),
               onTap: () {
                 Get.to(drawerPages[0]);
               },
@@ -84,11 +84,11 @@ class _HomePageState extends State<HomePage> {
               leading: Icon(
                 Icons.circle,
                 color: colorPurpleBright,
-                size: 20,
+                size: 16,
               ),
               title: Text(
                 'About Binta Initiative',
-                textScaleFactor: 1.3,
+                textScaleFactor: 1.2,
               ),
               onTap: () {
                 Get.to(drawerPages[1]);
@@ -98,11 +98,11 @@ class _HomePageState extends State<HomePage> {
               leading: Icon(
                 Icons.circle,
                 color: colorPurpleBright,
-                size: 20,
+                size: 16,
               ),
               title: Text(
                 'Partners',
-                textScaleFactor: 1.3,
+                textScaleFactor: 1.2,
               ),
               onTap: () {
                 Get.to(drawerPages[2]);
@@ -112,28 +112,32 @@ class _HomePageState extends State<HomePage> {
               leading: Icon(
                 Icons.circle,
                 color: colorPurpleBright,
-                size: 20,
+                size: 16,
               ),
               title: Text(
                 'Your Rights and Legal...',
-                textScaleFactor: 1.3,
+                textScaleFactor: 1.2,
               ),
               onTap: () {
                 Get.to(drawerPages[3]);
               },
             ),
             ListTile(
-              leading: Icon(
-                Icons.circle,
-                color: colorPurpleBright,
-                size: 20,
+              leading: Icon(Icons.circle,
+                color: colorPurpleBright, size: 16,
               ),
-              title: Text(
-                'Live Support',
-                textScaleFactor: 1.3,
-              ),
+              title: Text('The Team', textScaleFactor: 1.2,),
               onTap: () {
                 Get.to(drawerPages[4]);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.circle,
+                color: colorPurpleBright, size: 16,
+              ),
+              title: Text('F.A.Q', textScaleFactor: 1.2,),
+              onTap: () {
+                Get.to(drawerPages[5]);
               },
             ),
             Divider(
@@ -141,29 +145,10 @@ class _HomePageState extends State<HomePage> {
               height: 40,
             ),
             ListTile(
-              leading: Icon(
-                Icons.circle,
-                color: colorPurpleBright,
-                size: 20,
+              leading: Icon(Icons.circle,
+                color: colorPurpleBright, size: 16,
               ),
-              title: Text(
-                'Change Country',
-                textScaleFactor: 1.3,
-              ),
-              onTap: () {
-                Get.to(drawerPages[5]);
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.circle,
-                color: colorPurpleBright,
-                size: 20,
-              ),
-              title: Text(
-                'Tour',
-                textScaleFactor: 1.3,
-              ),
+              title: Text('Change Country', textScaleFactor: 1.2,),
               onTap: () {
                 Get.to(drawerPages[6]);
               },
@@ -172,11 +157,11 @@ class _HomePageState extends State<HomePage> {
               leading: Icon(
                 Icons.circle,
                 color: colorPurpleBright,
-                size: 20,
+                size: 16,
               ),
               title: Text(
-                'F.A.Q',
-                textScaleFactor: 1.3,
+                'Tour',
+                textScaleFactor: 1.2,
               ),
               onTap: () {
                 Get.to(drawerPages[7]);
@@ -186,19 +171,18 @@ class _HomePageState extends State<HomePage> {
               leading: Icon(
                 Icons.circle,
                 color: colorPurpleBright,
-                size: 20,
+                size: 16,
               ),
-              title: Text(
-                'Log Out',
-                textScaleFactor: 1.5,
+              title: Text('Log Out', style: TextStyle(color: colorRed),
+                textScaleFactor: 1.2,
               ),
               onTap: () {
                 _logoutDialog();
               },
             ),
-          ],
-        ),
+          ]),
       ),
+
       appBar: AppBar(
         elevation: 1,
         backgroundColor: colorWhite,
@@ -236,7 +220,7 @@ class _HomePageState extends State<HomePage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Expanded(
-                            child: Image.asset("assets/images/home_smsAlert.png", color: colorWhite),
+                            child: Image.asset("assets/images/home_sms_alert.png", color: colorWhite),
                           ),
                           SizedBox(height: 5.0),
                           Text("SMS Emergency", style: TextStyle(fontSize: 14.0, color: colorWhite)),
@@ -248,7 +232,7 @@ class _HomePageState extends State<HomePage> {
                       Get.to(
                         SmsEmergencyAlert(),
                         transition: Transition.rightToLeft,
-                        duration: Duration(milliseconds: 200),
+                        duration: Duration(milliseconds: 500),
                       );
                     },
                   ),
@@ -276,7 +260,7 @@ class _HomePageState extends State<HomePage> {
                       Get.to(
                         BintaBot(),
                         transition: Transition.leftToRight,
-                        duration: Duration(milliseconds: 200),
+                        duration: Duration(milliseconds: 500),
                       );
                     },
                   ),
@@ -309,8 +293,8 @@ class _HomePageState extends State<HomePage> {
                     onTap: () {
                       Get.to(
                         Services(),
-                        transition: Transition.rightToLeft,
-                        duration: Duration(milliseconds: 200),
+                        transition: Transition.downToUp,
+                        duration: Duration(milliseconds: 500),
                       );
                     },
                   ),
@@ -339,8 +323,8 @@ class _HomePageState extends State<HomePage> {
                     onTap: () {
                       Get.to(
                         Report(),
-                        transition: Transition.leftToRight,
-                        duration: Duration(milliseconds: 200),
+                        transition: Transition.upToDown,
+                        duration: Duration(milliseconds: 500),
                       );
                     },
                   ),
@@ -372,9 +356,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onTap: () {
                       Get.to(
-                        Bintaboard(),
+                        BintaBoard(),
                         transition: Transition.rightToLeft,
-                        duration: Duration(milliseconds: 200),
+                        duration: Duration(milliseconds: 500),
                       );
                     },
                   ),
@@ -402,7 +386,7 @@ class _HomePageState extends State<HomePage> {
                       Get.to(
                         LiveSupport(),
                         transition: Transition.leftToRight,
-                        duration: Duration(milliseconds: 200),
+                        duration: Duration(milliseconds: 500),
                       );
                     },
                   ),

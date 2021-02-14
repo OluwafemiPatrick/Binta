@@ -27,85 +27,99 @@ class _BintaBotState extends State<BintaBot> {
           title: Text('BintaBot', style: TextStyle(color: colorPrimaryPurple),)
       ),
       body: Container(
-        child: Column(
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.only(top: 15, bottom: 10),
-                child: Text("Today, ${DateFormat("Hm").format(DateTime.now())}", style: TextStyle(
-                    fontSize: 20
-                ),),
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Opacity(
+                opacity: 0.5,
+                child: Image.asset("assets/images/chat_background.png",
+                  fit: BoxFit.fill,
+                )
               ),
-              Flexible(
-                  child: ListView.builder(
-                      reverse: true,
-                      itemCount: messages.length,
-                      itemBuilder: (context, index) => chat(
-                          messages[index]["messages"].toString(),
-                          messages[index]["data"]))),
-              SizedBox(height: 20),
-              Divider(height: 5.0, color: Colors.greenAccent,),
-              Container(
-                child: ListTile(
-                  leading: IconButton(
-                    icon: Icon(Icons.camera_alt, color: Colors.greenAccent, size: 35,),
-                  ),
-                  title: Container(
-                    height: 35,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(
-                          15)),
-                      color: Color.fromRGBO(220, 220, 220, 1),
-                    ),
-                    padding: EdgeInsets.only(left: 15),
-                    child: TextFormField(
-                      controller: messageInsert,
-                      decoration: InputDecoration(
-                        hintText: "Enter a Message...",
-                        hintStyle: TextStyle(
-                            color: Colors.black26
+            ),
+            Column(
+                children: <Widget>[
+                  // Container(
+                  //   padding: EdgeInsets.only(top: 5, bottom: 5),
+                  //   child: Text("Today, ${DateFormat("Hm").format(DateTime.now())}", style: TextStyle(
+                  //       fontSize: 15
+                  //   ),),
+                  // ),
+                  Flexible(
+                      child: ListView.builder(
+                          reverse: true,
+                          itemCount: messages.length,
+                          itemBuilder: (context, index) => chat(
+                              messages[index]["messages"].toString(),
+                              messages[index]["data"]))),
+                  SizedBox(height: 15.0),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(15)),
+                              color: Color.fromRGBO(220, 220, 220, 1),
+                            ),
+                            padding: EdgeInsets.only(left: 15),
+                            child: TextFormField(
+                              controller: messageInsert,
+                              keyboardType: TextInputType.multiline,
+                              maxLines: 3,
+                              decoration: InputDecoration(
+                                hintText: "Enter a message...",
+                                hintStyle: TextStyle(color: Colors.black26),
+                                border: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                enabledBorder: InputBorder.none,
+                                errorBorder: InputBorder.none,
+                                disabledBorder: InputBorder.none,
+                              ),
+                              style: TextStyle(fontSize: 16, color: Colors.black),
+                              onChanged: (value) { },
+                            ),
+                          ),
                         ),
-                        border: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        errorBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                      ),
-
-                      style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.black
-                      ),
-                      onChanged: (value) {
-
-                      },
+                        SizedBox(width: 6.0),
+                        Container(
+                          width: 42.0,
+                          height: 42.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(25)),
+                            color: colorPrimaryPurple,
+                          ),
+                          child: IconButton(
+                            icon: Icon(Icons.send, size: 30.0, color: colorWhite),
+                            onPressed: () {
+                              if (messageInsert.text.isEmpty) {
+                                print("empty message");
+                              } else {
+                                setState(() {
+                                  messages.insert(0,
+                                      {"data": 1, "messages": messageInsert.text});
+                                });
+                                _response(messageInsert.text);
+                                messageInsert.clear();
+                              }
+                              FocusScopeNode currentFocus = FocusScope.of(context);
+                              if (!currentFocus.hasPrimaryFocus) {
+                                currentFocus.unfocus();
+                              }
+                            }),
+                        ),
+                      ],
                     ),
                   ),
-
-                  trailing: IconButton(
-
-                      icon: Icon(Icons.send, size: 30.0, color: Colors.greenAccent),
-                      onPressed: () {
-                        if (messageInsert.text.isEmpty) {
-                          print("empty message");
-                        } else {
-                          setState(() {
-                            messages.insert(0,
-                                {"data": 1, "messages": messageInsert.text});
-                          });
-                          _response(messageInsert.text);
-                          messageInsert.clear();
-                        }
-                        FocusScopeNode currentFocus = FocusScope.of(context);
-                        if (!currentFocus.hasPrimaryFocus) {
-                          currentFocus.unfocus();
-                        }
-                      }),
-                ),
-
-              ),
-
-              SizedBox(height: 15.0,)
-            ]),
+                ]),
+          ],
+        ),
       ),
 
     );
@@ -114,46 +128,45 @@ class _BintaBotState extends State<BintaBot> {
 
   Widget chat(String message, int data) {
     return Container(
-      padding: EdgeInsets.only(left: 4, right: 8),
+      padding: EdgeInsets.only(left: 4, right: 6),
       child: Row(
         mainAxisAlignment: data == 1 ? MainAxisAlignment.end : MainAxisAlignment.start,
         children: [
           data == 0 ? Container(
-            height: 60,
-            width: 60,
+            height: 40,
+            width: 40,
             child: CircleAvatar(
-              backgroundImage: AssetImage("assets/robot_avatar.jpg"),
+              backgroundImage: AssetImage("assets/images/robot_avatar.png"),
             ),
           ) : Container(),
 
           Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: EdgeInsets.symmetric(vertical: 10.0),
             child: Bubble(
                 radius: Radius.circular(15.0),
-                color: data == 0 ? Color.fromRGBO(23, 157, 139, 1) : Colors.orangeAccent,
+                color: data == 0 ? Colors.blueGrey[700] : Colors.blueGrey[600],
                 elevation: 0.0,
-                child: Padding(
-                  padding: EdgeInsets.all(2.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      SizedBox(width: 10.0,),
-                      Flexible(
-                          child: Container(
-                            constraints: BoxConstraints( maxWidth: 200),
-                            child: Text(message, style: TextStyle(
-                                  color: Colors.white, fontWeight: FontWeight.bold),
-                            ),
-                          ))
-                    ]),
-                )),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    SizedBox(width: 10.0,),
+                    Flexible(
+                        child: Container(
+                          constraints: BoxConstraints( maxWidth: 200),
+                          child: Text(message, style: TextStyle(
+                                color: Colors.white, fontWeight: FontWeight.bold),
+                          ),
+                        ))
+                  ])),
           ),
 
           data == 1? Container(
-            height: 60,
-            width: 60,
             child: CircleAvatar(
-              backgroundImage: AssetImage("assets/android.jpg"),
+              radius: 20,
+              child: Icon(Icons.person,
+                color: Colors.white, size: 34,
+              ),
+              backgroundColor: Colors.blueGrey[800],
             ),
           ) : Container(),
         ]),

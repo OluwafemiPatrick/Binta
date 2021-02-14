@@ -1,29 +1,33 @@
 import 'package:Binta/shared/colors.dart';
 import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class SelectContacts extends StatefulWidget {
 
-  final Iterable<Contact> contacts;
-  final String itemNumber;
-
-  SelectContacts(this.contacts, this.itemNumber);
+  // final List<Contact> contacts;
+  // final String itemNumber;
+  //
+  // SelectContacts(this.contacts, this.itemNumber);
 
   @override
   _SelectContactsState createState() => _SelectContactsState();
 }
 
 class _SelectContactsState extends State<SelectContacts> {
+
   String _itemNumber;
-  Iterable<Contact> _contacts;
+  List<Contact> _contacts;
 
   @override
   void initState() {
     // TODO: implement initState
-    setState(() {
-      _itemNumber = widget.itemNumber;
-      _contacts = widget.contacts;
-    });
+    _requestPermission();
+    _fetchContacts();
+    // setState(() {
+    //   _itemNumber = widget.itemNumber;
+    //   _contacts = widget.contacts;
+    // });
     super.initState();
   }
 
@@ -42,9 +46,9 @@ class _SelectContactsState extends State<SelectContacts> {
         child: _contacts.length>0 ? ListView.builder(
           itemCount: _contacts.length,
           itemBuilder: (_, index){
-            return _body("", ""
-           //   _contacts[index].displayName,
-             // _contacts[index].phones,
+            return _body(
+              _contacts[index].displayName,
+              _contacts[index].familyName,
             );
           }) : Center()
       ),
@@ -52,7 +56,31 @@ class _SelectContactsState extends State<SelectContacts> {
   }
 
   Widget _body(String name, String phone){
-    return Text("");
+    return Text(name);
   }
+
+  _fetchContacts() async {
+    var status = await Permission.contacts.status;
+    if (status.isGranted){
+      _contacts = await ContactsService.getContacts(withThumbnails: false);
+    }
+    else{
+      _requestPermission();
+    }
+  }
+
+  _requestPermission() async {
+    var status = await Permission.contacts.status;
+    if (status.isUndetermined){
+      Permission.contacts.request();
+    }
+    else if (status.isDenied){
+      Permission.contacts.request();
+    }
+    else if (status.isPermanentlyDenied){
+      openAppSettings();
+    }
+  }
+
 
 }
