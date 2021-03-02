@@ -1,17 +1,19 @@
-import 'package:Binta/home_pages/binta_board/bintaboard.dart';
+import 'package:Binta/home_pages/binta_band/bintaband.dart';
 import 'package:Binta/home_pages/bintabot/bintabot.dart';
-import 'package:Binta/home_pages/drawer_pages/1.dart';
-import 'package:Binta/home_pages/drawer_pages/2.dart';
-import 'package:Binta/home_pages/drawer_pages/3.dart';
-import 'package:Binta/home_pages/drawer_pages/4.dart';
-import 'package:Binta/home_pages/drawer_pages/5.dart';
-import 'package:Binta/home_pages/drawer_pages/6.dart';
-import 'package:Binta/home_pages/drawer_pages/7.dart';
-import 'package:Binta/home_pages/drawer_pages/8.dart';
+import 'package:Binta/home_pages/drawer_pages/what_is_binta.dart';
+import 'package:Binta/home_pages/drawer_pages/about_binta.dart';
+import 'package:Binta/home_pages/drawer_pages/partners.dart';
+import 'package:Binta/home_pages/drawer_pages/your_rights_and_legal_resources.dart';
+import 'package:Binta/home_pages/drawer_pages/the_team.dart';
+import 'package:Binta/home_pages/drawer_pages/faq.dart';
+import 'package:Binta/home_pages/drawer_pages/change_country.dart';
+import 'package:Binta/home_pages/drawer_pages/tour.dart';
 import 'package:Binta/home_pages/live_support/live_support.dart';
 import 'package:Binta/home_pages/report/report.dart';
+import 'package:Binta/home_pages/report/report_intro_page.dart';
 import 'package:Binta/home_pages/services_pages/services.dart';
 import 'package:Binta/home_pages/sms_alert/sms_alert.dart';
+import 'package:Binta/services/auth.dart';
 import 'package:Binta/shared/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -60,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                 backgroundColor: Colors.blueGrey[900],
               ),
               subtitle: Text(
-                'Pat Patrick',
+                'Binta User',
                 style: TextStyle(color: colorBlack),
                 textScaleFactor: 1.3,
               ),
@@ -315,14 +317,14 @@ class _HomePageState extends State<HomePage> {
                                 child: Image.asset("assets/images/home_report.png", color: colorWhite),
                               ),
                               SizedBox(height: 5.0),
-                              Text("Report Incidence", style: TextStyle(fontSize: 14.0, color: colorWhite),),
+                              Text("Report Incident", style: TextStyle(fontSize: 14.0, color: colorWhite),),
                               SizedBox(height: 2.0),
                               Text("to Binta", style: TextStyle(fontSize: 14.0, color: colorWhite),)
                             ])
                     ),
                     onTap: () {
                       Get.to(
-                        Report(),
+                        ReportIntro(),
                         transition: Transition.upToDown,
                         duration: Duration(milliseconds: 500),
                       );
@@ -351,12 +353,12 @@ class _HomePageState extends State<HomePage> {
                                 child: Image.asset("assets/images/home_bintaband.png", color: colorWhite),
                               ),
                               SizedBox(height: 5.0),
-                              Text("BintaBoard", style: TextStyle(fontSize: 14.0, color: colorWhite)),
+                              Text("BintaBand", style: TextStyle(fontSize: 14.0, color: colorWhite)),
                             ])
                     ),
                     onTap: () {
                       Get.to(
-                        BintaBoard(),
+                        BintaBand(),
                         transition: Transition.rightToLeft,
                         duration: Duration(milliseconds: 500),
                       );
@@ -398,6 +400,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future _logoutDialog(){
+    AuthService _auth = new AuthService();
     return showDialog(
         context: context,
         child: AlertDialog(
@@ -414,7 +417,7 @@ class _HomePageState extends State<HomePage> {
             FlatButton(
               onPressed: () async {
                 Navigator.of(context).pop();
-                //  await _auth.signOut();
+                  await _auth.signOut();
               },
               child: Text("Yes, Logout"),
             )

@@ -1,7 +1,7 @@
 import 'package:Binta/shared/colors.dart';
 import 'package:flutter/material.dart';
 
-class BintaBoard extends StatelessWidget {
+class BintaBand extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,7 +10,7 @@ class BintaBoard extends StatelessWidget {
           backgroundColor: colorWhite,
           iconTheme: IconThemeData(color: colorPrimaryPurple, size: 10),
           centerTitle: true,
-          title: Text('Binta Board', style: TextStyle(color: colorPrimaryPurple),)
+          title: Text('Binta Band', style: TextStyle(color: colorPrimaryPurple),)
       ),
       body: Container()
     );

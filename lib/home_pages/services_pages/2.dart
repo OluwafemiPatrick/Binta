@@ -49,7 +49,7 @@ class _Services2State extends State<Services2> {
             fit: StackFit.expand,
             children: <Widget>[
               Opacity(
-                opacity: 0.2,
+                opacity: 0.1,
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.6,
                   width: MediaQuery.of(context).size.width,

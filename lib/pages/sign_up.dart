@@ -1,4 +1,6 @@
+import 'package:Binta/pages/privacy_policy.dart';
 import 'package:Binta/pages/sign_in.dart';
+import 'package:Binta/pages/terms_of_service.dart';
 import 'package:Binta/services/auth.dart';
 import 'package:Binta/shared/spinner.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +57,7 @@ class _SignUpState extends State<SignUp> {
 
   String validateConfirmPassword(String value) {
     if (value.trim() != _passwordController.text.trim()) {
-      return 'Password Mismatch!!!';
+      return 'Passwords do not match';
     }
     return null;
   }
@@ -246,7 +248,7 @@ class _SignUpState extends State<SignUp> {
                                         ),
                                       ),
                                       validator: (val) => val != password
-                                          ? "Password doesn't match"
+                                          ? "Passwords do not match"
                                           : null,
                                       obscureText: _passwordVisible,
                                       onChanged: (val) {
@@ -266,24 +268,73 @@ class _SignUpState extends State<SignUp> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      FlatButton.icon(
-                                        splashColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onPressed: () {
-                                          setState(() {
-                                            isChecked = !isChecked;
-                                          });
-                                        },
-                                        icon: isChecked
-                                            ? Icon(Icons.check_box)
-                                            : Icon(
-                                                Icons.check_box_outline_blank),
-                                        label: Text(
-                                          'By Signing Up, I agree to the terms of \n service and privacy policy of Binta.',
-                                          style: TextStyle(
-                                              color: colorBlack,
-                                              fontSize: 16.0),
+                                      SizedBox(
+                                        width: 50.0,
+                                        child: FlatButton(
+                                          splashColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          child: isChecked ? Icon(Icons.check_box)
+                                              : Icon(Icons.check_box_outline_blank),
+                                          onPressed: () {
+                                            setState(() => isChecked = !isChecked);
+                                          },
                                         ),
+                                      ),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Text(
+                                                'By Signing Up, I agree to the ',
+                                                style: TextStyle(color: colorBlack, fontSize: 15.0),
+                                              ),
+                                              GestureDetector(
+                                                child: Text(
+                                                  'terms of service',
+                                                  style: TextStyle(color: colorBlack, fontSize: 15.0,
+                                                    decoration: TextDecoration.underline,
+                                                  ),
+                                                ),
+                                                onTap: (){
+                                                  Get.to(
+                                                    TermsOfService(),
+                                                    transition: Transition.rightToLeft,
+                                                    duration: Duration(milliseconds: 500),
+                                                  );
+                                                },
+                                              ),
+                                            ],
+                                          ),
+
+                                          Row(
+                                            children: [
+                                              Text(
+                                                ' and ',
+                                                style: TextStyle(color: colorBlack, fontSize: 15.0),
+                                              ),
+                                              GestureDetector(
+                                                child: Text(
+                                                  'privacy policy',
+                                                  style: TextStyle(color: colorBlack, fontSize: 15.0,
+                                                    decoration: TextDecoration.underline,
+                                                  ),
+                                                ),
+                                                onTap: () {
+                                                  Get.to(
+                                                    PrivacyPolicy(),
+                                                    transition: Transition.leftToRight,
+                                                    duration: Duration(milliseconds: 500),
+                                                  );
+                                                },
+                                              ),
+                                              Text(
+                                                ' of Binta.',
+                                                style: TextStyle(color: colorBlack, fontSize: 15.0),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),

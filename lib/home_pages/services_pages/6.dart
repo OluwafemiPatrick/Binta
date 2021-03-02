@@ -1,49 +1,31 @@
-import 'dart:ui';
-
 import 'package:Binta/shared/colors.dart';
 import 'package:flutter/material.dart';
 
-class Services5 extends StatefulWidget {
+class Services6 extends StatefulWidget {
   @override
-  _Services5State createState() => _Services5State();
+  _Services6State createState() => _Services6State();
 }
 
-class _Services5State extends State<Services5> {
-  final int _numPages = 4;
+class _Services6State extends State<Services6> {
+
+  final int _numPages = 3;
   final PageController _pageController = PageController(initialPage: 0);
   int _currentPage = 0;
 
-  String _message1 = 'It is the goal of Binta to find real, sustainable solutions to help Africa’s most vulnerable and at-risk.\n'
-      '\nA critical approach of providing prevention support is to build a fit-for-purpose technology-based solutions to help victims'
-      ' of gender-based violence. It is our belief that the access to the right technology can enable a better and safer way for all '
-      'vulnerable to reach people in need for help.\n\nBinta also intend to harmonized required partnerships with developers, NGOs and '
-      'law enforcement agency/agents in the gender-based violence space.\n\nBinta is leveraging on both the mobile and internet-technology '
-      'based interventions that combine a number of different objectives, from mapping violence to gathering data, using data gathered to '
-      'advocate for change and providing survivors with access to essential information and support.';
-
-  String _message2 = 'Most especially bridging the gap of access support from a community of peers, raise awareness of the violence faced by victims,'
-      ' use entertainment and social media network, and monitor and evaluate interventions and measure their impact.\n\nAlso, the key priority of Binta'
-      ' is to prevent GBV and to stop it from happening in the first place. Some means of ensuring that is happening are as follow:'
-      '\n\n- Supporting women’s full participation in civil society in contexts of peace, conflicts and other humanitarian crisis. Women have rights to '
-      'participate on equal terms with men in political bodies at all levels of the society, including in peace processes.';
-
-  String _message3 = '- Efforts to increase women’s economic empowerment that enhance women’s bargaining power and ability to leave abusive relationships.'
-      ' This includes strengthening women’s entrepreneurship and employment opportunities, improving women’s access to land and property rights, promoting'
-      ' equal sharing of unpaid care work between women and men and encouraging universal access to quality education.\n\n- Efforts to increase sexual and '
-      'reproductive health and rights are crucial for preventing GBV given the close relationship between the two. Such efforts include promotion and protection'
-      ' of women’s right to have control and decide freely over matters related to their sexuality, including sexual and reproductive health, family-planning possibilities and HIV/AIDS prevention.';
-
-  String _message4 = '- Incorporate potential activist either from the angle of perpetrators, victims/survivors as the agents of change to advocate and join to raise their voice'
-      ' to kick against gender-based violence.\n\n- Transformation of norms and behavior that underpin GBV. The logic of GBV is based on gender stereotypes, such as ideals linking masculinity '
-      'to the provider role, macho behaviour and violence as well as ideals linking femininity to chastity, submission and victim-hood.\n\n Prevention efforts should start early in life and be '
-      'directed at girls and boys. Both non-formal education and formal education are important sites for normative change and have the potential to address gender inequalities and prevent GBV.';
+  String _message1 = "Modern slavery is a serious crime in which people are coerced or deceived into a situation where they are exploited, for the purpose of making a profit. The offence is punishable by up to life imprisonment "
+      "under the 2015 Modern Slavery Act.\n \nModern slavery takes many forms including trafficking for sexual exploitation (including prostitution, strip clubs, escort work and pornography), domestic servitude (including working as "
+      "cleaners, carers or nannies) and forced labour in work such as nail bars and car washes.";
+  String _message2 = "Binta has become the channel connecting victims to stakeholders providing Safe houses. We also advocate against modern slavery and we are committed to using what we learn to improve policy and practice. "
+      "We understand the role of the public and organization to combating and addressing cases of modern slavery, we see the need for capacity building by designing training package tailored to modern slavery fighting organizations.";
+  String _message3 = "Get support: If you are concerned about someone, please reach out to Binta via support@binta.com. It is available 24 hours a day, seven days a week for anyone who feels they might be a victim of modern slavery and "
+      "in need of assistance, or if you encounter someone you suspect may be a victim of modern slavery.";
 
 
   List<Widget> _buildPageIndicator() {
-      List<Widget> list = [];
-      for (int i = 0; i < _numPages; i++) {
-        list.add(i == _currentPage ? _indicator(true) : _indicator(false));
-      }
+    List<Widget> list = [];
+    for (int i = 0; i < _numPages; i++) {
+      list.add(i == _currentPage ? _indicator(true) : _indicator(false));
+    }
     return list;
   }
 
@@ -67,7 +49,7 @@ class _Services5State extends State<Services5> {
             backgroundColor: colorWhite,
             iconTheme: IconThemeData(color: colorPrimaryPurple, size: 10),
             centerTitle: true,
-            title: Text('Prevention and Support', style: TextStyle(color: colorPrimaryPurple),)
+            title: Text('Modern Slavery Response', style: TextStyle(color: colorPrimaryPurple),)
         ),
         body: Padding(
           padding: const EdgeInsets.only(
@@ -85,7 +67,7 @@ class _Services5State extends State<Services5> {
                 ),
               ),
               Positioned(
-                child: Container(
+                  child: Container(
                     height: MediaQuery.of(context).size.height,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,6 +77,7 @@ class _Services5State extends State<Services5> {
                           child: Container(
                             height: 125,
                             width: 125,
+                            padding: EdgeInsets.all(5.0),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20.0),
                                 border: Border.all(
@@ -102,7 +85,7 @@ class _Services5State extends State<Services5> {
                                   color: colorPurpleBright,
                                 )),
                             child: Image.asset(
-                              'assets/images/service_prevention.png',
+                              'assets/images/service_modern_slavery.jpeg',
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -128,7 +111,7 @@ class _Services5State extends State<Services5> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(_message1, style: TextStyle(
-                                            fontSize: 15, fontWeight: FontWeight.w500),
+                                          fontSize: 15, fontWeight: FontWeight.w500),
                                         textAlign: TextAlign.start,
                                       )
                                     ],
@@ -141,8 +124,8 @@ class _Services5State extends State<Services5> {
                                     children: <Widget>[
                                       Center(
                                           child: Text(_message2, style: TextStyle(
-                                            fontSize: 15, fontWeight: FontWeight.w500),
-                                      ))
+                                              fontSize: 15, fontWeight: FontWeight.w500),
+                                          ))
                                     ],
                                   ),
                                 ),
@@ -153,20 +136,8 @@ class _Services5State extends State<Services5> {
                                     children: <Widget>[
                                       Center(
                                           child: Text(_message3, style: TextStyle(
-                                            fontSize: 15, fontWeight: FontWeight.w500),
-                                      ))
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0),
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Center(
-                                          child: Text(_message4, style: TextStyle(
-                                            fontSize: 15, fontWeight: FontWeight.w500),
-                                      ))
+                                              fontSize: 15, fontWeight: FontWeight.w500),
+                                          ))
                                     ],
                                   ),
                                 ),
@@ -183,7 +154,7 @@ class _Services5State extends State<Services5> {
                         )
                       ],
                     ),
-              ))
+                  ))
             ],
           ),
         ));

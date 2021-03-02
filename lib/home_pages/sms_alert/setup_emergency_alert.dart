@@ -1,7 +1,5 @@
 import 'package:Binta/home_pages/sms_alert/contact_select.dart';
 import 'package:Binta/shared/colors.dart';
-import 'package:Binta/shared/toast_message.dart';
-import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';

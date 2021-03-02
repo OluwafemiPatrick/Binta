@@ -25,7 +25,7 @@ class _LiveSupportDashboardState extends State<LiveSupportDashboard> {
             fit: StackFit.expand,
             children: [
               Opacity(
-                opacity: 0.2,
+                opacity: 0.1,
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.6,
                   width: MediaQuery.of(context).size.width,

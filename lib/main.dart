@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
       value: AuthService().user,
       child: GetMaterialApp(
           debugShowCheckedModeBanner: false,
+          title: 'Binta',
           theme: ThemeData(
             primaryColor: colorPrimaryPurple,
             accentColor: colorWhite,
