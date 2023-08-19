@@ -12,9 +12,11 @@ import 'package:Binta/home_pages/live_support/live_support.dart';
 import 'package:Binta/home_pages/report/report_intro_page.dart';
 import 'package:Binta/home_pages/services_pages/services.dart';
 import 'package:Binta/home_pages/sms_alert/sms_alert.dart';
+import 'package:Binta/pages/wrapper.dart';
 import 'package:Binta/shared/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -393,6 +395,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  _logoutDialog() {}
+  _logoutDialog() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.setBool('logged_in', false);
+    Get.off(() => Wrapper());
+  }
 
 }
