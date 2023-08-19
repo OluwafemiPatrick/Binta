@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:Binta/shared/colors.dart';
 import 'package:get/get.dart';
 
-import '../shared/colors.dart';
 
 class Authenticate extends StatefulWidget {
   @override
@@ -15,7 +14,6 @@ class Authenticate extends StatefulWidget {
 class _AuthenticateState extends State<Authenticate> {
   @override
   void initState() {
-    print("authenticate page");
 
     super.initState();
   }
@@ -48,15 +46,14 @@ class _AuthenticateState extends State<Authenticate> {
               decoration: BoxDecoration(
                 color: colorWhite,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0),
+                  topLeft: Radius.circular(30.0),
+                  topRight: Radius.circular(30.0),
                 ),
               ),
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10.0, horizontal: 10),
+                    padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
                     child: Container(
                       height: 35,
                       alignment: Alignment.center,
@@ -68,23 +65,20 @@ class _AuthenticateState extends State<Authenticate> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  SizedBox(height: 20),
                   Text(
                     'Preventing and ending the silence of \n gender-based violence',
-                    style: TextStyle(
-                      color: colorBlack,
-                    ),
+                    style: TextStyle(color: colorBlack),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(
                     height: 40,
                   ),
                   GestureDetector(
-                    onTap: () => Get.off(SignUp(),
-                        transition: Transition.downToUp,
-                        duration: Duration(milliseconds: 200)),
+                    onTap: () => Get.off(
+                      SignUp(),
+                      transition: Transition.downToUp,
+                      duration: Duration(milliseconds: 200)),
                     child: Container(
                       height: 60,
                       width: 320,

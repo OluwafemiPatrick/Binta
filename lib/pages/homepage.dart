@@ -9,11 +9,9 @@ import 'package:Binta/home_pages/drawer_pages/faq.dart';
 import 'package:Binta/home_pages/drawer_pages/change_country.dart';
 import 'package:Binta/home_pages/drawer_pages/tour.dart';
 import 'package:Binta/home_pages/live_support/live_support.dart';
-import 'package:Binta/home_pages/report/report.dart';
 import 'package:Binta/home_pages/report/report_intro_page.dart';
 import 'package:Binta/home_pages/services_pages/services.dart';
 import 'package:Binta/home_pages/sms_alert/sms_alert.dart';
-import 'package:Binta/services/auth.dart';
 import 'package:Binta/shared/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -184,16 +182,12 @@ class _HomePageState extends State<HomePage> {
             ),
           ]),
       ),
-
       appBar: AppBar(
         elevation: 1,
         backgroundColor: colorWhite,
-        iconTheme: IconThemeData(color: colorPrimaryPurple, size: 10),
+        iconTheme: IconThemeData(color: colorPrimaryPurple),
         centerTitle: true,
-        title: Image.asset(
-          "lib/shared/assets/images/binta_logo_only.png",
-          scale: 1.5,
-        ),
+        title: Image.asset('assets/images/binta_logo_full.png')
       ),
       body: _body(),
     );
@@ -399,30 +393,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future _logoutDialog(){
-    AuthService _auth = new AuthService();
-    return showDialog(
-        context: context,
-        child: AlertDialog(
-          title: Text('Do you want to logout from the account?'),
-          content: Text('We hate to see you leave...'),
-          actions: <Widget>[
-            FlatButton(
-              onPressed: () {
-                print(' you choose no');
-                Navigator.of(context).pop();
-              },
-              child: Text('No'),
-            ),
-            FlatButton(
-              onPressed: () async {
-                Navigator.of(context).pop();
-                  await _auth.signOut();
-              },
-              child: Text("Yes, Logout"),
-            )
-          ],
-        ));
-  }
+  _logoutDialog() {}
 
 }

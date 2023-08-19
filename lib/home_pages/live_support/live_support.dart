@@ -37,7 +37,7 @@ class LiveSupport extends StatelessWidget {
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.6,
                       width: MediaQuery.of(context).size.width,
-                      child: Image.asset('lib/shared/assets/images/binta_logo_full_only.png'),
+                      child: Image.asset('lib/shared/assets/images/binta_logo_full.png'),
                     ),
                   ),
                   Container(
@@ -54,7 +54,7 @@ class LiveSupport extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                   color: colorPrimaryPurple),
-              child: FlatButton(
+              child: TextButton(
                 child: Text("Proceed to Live Support", style: TextStyle(
                     fontSize: 16.0, color: colorWhite, fontWeight: FontWeight.normal)),
                 onPressed: (){

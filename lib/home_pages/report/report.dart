@@ -1,9 +1,6 @@
-import 'package:Binta/home_pages/sms_alert/setup_emergency_alert.dart';
 import 'package:Binta/shared/colors.dart';
 import 'package:Binta/shared/toast_message.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class Report extends StatefulWidget {
   @override
@@ -12,7 +9,6 @@ class Report extends StatefulWidget {
 
 class _ReportState extends State<Report> {
 
-  final _formKey = GlobalKey<FormState>();
 
   String text = '';
   String _incidentLocation = '';
@@ -88,7 +84,7 @@ class _ReportState extends State<Report> {
             child: Container(
               height: MediaQuery.of(context).size.height * 0.6,
               width: MediaQuery.of(context).size.width,
-              child: Image.asset('lib/shared/assets/images/binta_logo_full_only.png'),
+              child: Image.asset('lib/shared/assets/images/binta_logo_full.png'),
             ),
           ),
 
@@ -112,7 +108,7 @@ class _ReportState extends State<Report> {
       Text(_whatWouldYouLike, style: TextStyle(
           fontSize: 16, color: colorPurpleBright, fontWeight: FontWeight.bold)),
       SizedBox(height: 15.0,),
-      FlatButton.icon(
+        TextButton.icon(
           onPressed: () {
             setState(() => _isOneSelected = !_isOneSelected);
           },
@@ -121,7 +117,7 @@ class _ReportState extends State<Report> {
           ),
           label: Text(_anIncidentOf, style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal),)
       ),
-      FlatButton.icon(
+        TextButton.icon(
           onPressed: () {
             setState(() => _isTwoSelected = !_isTwoSelected);
           },
@@ -162,7 +158,7 @@ class _ReportState extends State<Report> {
           fontSize: 16, color: colorPurpleBright, fontWeight: FontWeight.bold
       )),
       SizedBox(height: 15.0,),
-      FlatButton.icon(
+        TextButton.icon(
           onPressed: () {
             setState(() => _role1 = !_role1);
           },
@@ -171,7 +167,7 @@ class _ReportState extends State<Report> {
           ),
           label: Text("I was harassed", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal),)
       ),
-      FlatButton.icon(
+        TextButton.icon(
           onPressed: () {
             setState(() => _role2 = !_role2);
           },
@@ -180,7 +176,7 @@ class _ReportState extends State<Report> {
           ),
           label: Text("I witnessed the incident", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal),)
       ),
-      FlatButton.icon(
+        TextButton.icon(
           onPressed: () {
             setState(() => _role3 = !_role3);
           },
@@ -243,7 +239,7 @@ class _ReportState extends State<Report> {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
           color: colorPrimaryPurple),
-      child: FlatButton(
+      child: TextButton(
         child: Text("Submit Report", style: TextStyle(
             fontSize: 16.0, color: colorWhite, fontWeight: FontWeight.normal)),
         onPressed: (){
@@ -268,7 +264,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType1 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -288,7 +284,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType2 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -308,7 +304,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType3 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -328,7 +324,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType4 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -348,7 +344,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType5 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -368,7 +364,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType6 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -388,7 +384,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType7 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -408,7 +404,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType8 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -428,7 +424,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType9 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -448,7 +444,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType10 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -468,7 +464,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType11 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -488,7 +484,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType12 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -508,7 +504,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType13 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -528,7 +524,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType14 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -548,7 +544,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType15 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -568,7 +564,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType16 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){
@@ -588,7 +584,7 @@ class _ReportState extends State<Report> {
               children: [
                 SizedBox(
                   width: 40.0,
-                  child: FlatButton(
+                  child: TextButton(
                     child: _isType17 ? Icon(Icons.check_box, size: 25.0,)
                         : Icon(Icons.check_box_outline_blank, size: 25.0,),
                     onPressed: (){

@@ -29,7 +29,7 @@ class _LiveSupportDashboardState extends State<LiveSupportDashboard> {
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.6,
                   width: MediaQuery.of(context).size.width,
-                  child: Image.asset('lib/shared/assets/images/binta_logo_full_only.png'),
+                  child: Image.asset('lib/shared/assets/images/binta_logo_full.png'),
                 ),
               ),
               Column(
@@ -75,7 +75,7 @@ class _LiveSupportDashboardState extends State<LiveSupportDashboard> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
                         color: colorBrown),
-                    child: FlatButton(
+                    child: TextButton(
                       child: Text("Call", style: TextStyle(
                           fontSize: 15.0, color: colorWhite, fontWeight: FontWeight.normal)),
                       onPressed: (){ },
@@ -88,7 +88,7 @@ class _LiveSupportDashboardState extends State<LiveSupportDashboard> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
                         color: colorBrown),
-                    child: FlatButton(
+                    child: TextButton(
                       child: Text("Message", style: TextStyle(
                           fontSize: 15.0, color: colorWhite, fontWeight: FontWeight.normal)),
                       onPressed: (){ },

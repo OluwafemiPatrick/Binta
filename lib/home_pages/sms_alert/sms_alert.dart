@@ -5,10 +5,9 @@ import 'package:get/get.dart';
 
 class SmsEmergencyAlert extends StatelessWidget {
 
-  String _userName="Oluwafemi";
-  String topText = "Please choose the message you want to send to your emergency contacts.";
-
-  double _textSize = 15.0;
+  final String _userName="Oluwafemi";
+  final String topText = "Please choose the message you want to send to your emergency contacts.";
+  final double _textSize = 15.0;
 
   @override
   Widget build(BuildContext context) {
@@ -102,7 +101,7 @@ class SmsEmergencyAlert extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
           color: colorPrimaryPurple),
-      child: FlatButton(
+      child: TextButton(
         child: Text("Setup Emergency Contacts", style: TextStyle(
             fontSize: _textSize, color: colorWhite, fontWeight: FontWeight.normal)),
         onPressed: (){

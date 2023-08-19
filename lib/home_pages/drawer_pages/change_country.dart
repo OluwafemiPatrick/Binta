@@ -12,7 +12,7 @@ class Drawer7 extends StatefulWidget {
 
 class _Drawer7State extends State<Drawer7> {
 
-  SharedPreferences prefs;
+  late SharedPreferences prefs;
 
   String _country = "";
 
@@ -38,7 +38,7 @@ class _Drawer7State extends State<Drawer7> {
 
   _retrieveCountry()async{
     prefs = await SharedPreferences.getInstance();
-    setState(() => _country = prefs.getString("country"));
+    setState(() => _country = prefs.getString("country")!);
   }
 
 
@@ -62,7 +62,7 @@ class _Drawer7State extends State<Drawer7> {
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.6,
                   width: MediaQuery.of(context).size.width,
-                  child: Image.asset('lib/shared/assets/images/binta_logo_full_only.png'),
+                  child: Image.asset('lib/shared/assets/images/binta_logo_full.png'),
                 ),
               ),
               Container(
@@ -77,7 +77,7 @@ class _Drawer7State extends State<Drawer7> {
                           fontSize: 18.0, color: colorBlack
                         ),),
                         SizedBox(width: 10.0,),
-                        Text(_country!=null ? _country : "Nigeria", style: TextStyle(fontSize: 18.0,
+                        Text(_country, style: TextStyle(fontSize: 18.0,
                             fontWeight: FontWeight.bold, color: colorPurpleBright))
                       ],),
                       SizedBox(height: 40.0,),
@@ -89,7 +89,7 @@ class _Drawer7State extends State<Drawer7> {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                             color: colorPrimaryPurple),
-                        child: FlatButton(
+                        child: TextButton(
                           child: Text("Save Changes", style: TextStyle(
                               fontSize: 16.0, color: colorWhite, fontWeight: FontWeight.normal)),
                           onPressed: () async {

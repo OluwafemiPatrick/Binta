@@ -51,7 +51,7 @@ class Drawer6 extends StatelessWidget {
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.6,
                 width: MediaQuery.of(context).size.width,
-                child: Image.asset('lib/shared/assets/images/binta_logo_full_only.png'),
+                child: Image.asset('lib/shared/assets/images/binta_logo_full.png'),
               ),
             ),
             _body(),

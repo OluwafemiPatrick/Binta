@@ -1,29 +1,27 @@
 import 'package:Binta/pages/authenticate.dart';
 import 'package:Binta/pages/homepage.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class Wrapper extends StatefulWidget {
-  @override
-  _WrapperState createState() => _WrapperState();
-}
 
-class _WrapperState extends State<Wrapper> {
-  @override
-  void initState() {
-    print('Wrapper');
-    super.initState();
+class Wrapper extends StatelessWidget {
+  const Wrapper({Key? key}) : super(key: key);
+
+  _checkUser() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool? loggedIn = prefs.getBool('logged_in');
+
+    if (loggedIn == true) {
+      Get.off(() => HomePage());
+    } else {
+      Get.off(() => Authenticate());
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<User>(context);
-
-    if (user == null) {
-      return Authenticate();
-    } else {
-      return HomePage();
-    }
+    _checkUser();
+    return Container();
   }
 }

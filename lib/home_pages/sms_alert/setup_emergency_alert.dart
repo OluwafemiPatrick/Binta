@@ -13,16 +13,15 @@ class SetupEmergencyAlert extends StatefulWidget {
 
 class _SetupEmergencyAlertState extends State<SetupEmergencyAlert> {
 
-  SharedPreferences prefs;
+  late SharedPreferences prefs;
 
   String _contactName1="Oluwafemi", _contactName2="", _contactName3="", _contactName4="", _contactName5="", _contactName6="",
-      _contactNum1="08137656465", _contactNum2="", _contactNum3="", _contactNum4="", _contactNum5="", _contactNum6="", _userName;
+      _contactNum1="08137656465", _contactNum2="", _contactNum3="", _contactNum4="", _contactNum5="", _contactNum6="";
+  String _userName = '';
 
   @override
   void initState() {
-    // TODO: implement initState
     _requestPermission();
-  //  _retrieveSavedContacts();
     super.initState();
   }
 
@@ -207,7 +206,7 @@ class _SetupEmergencyAlertState extends State<SetupEmergencyAlert> {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
           color: colorPrimaryPurple),
-      child: FlatButton(
+      child: TextButton(
         child: Text("Save", style: TextStyle(
             fontSize: 16.0, color: colorWhite, fontWeight: FontWeight.normal)),
         onPressed: (){
@@ -219,36 +218,32 @@ class _SetupEmergencyAlertState extends State<SetupEmergencyAlert> {
         },
       ),
     );
-
   }
 
 
   _retrieveSavedContacts() async {
     prefs = await SharedPreferences.getInstance();
     setState(() {
-      _contactName1 = prefs.getString("contactName1");
-      _contactName2 = prefs.getString("contactName2");
-      _contactName3 = prefs.getString("contactName3");
-      _contactName4 = prefs.getString("contactName4");
-      _contactName5 = prefs.getString("contactName5");
-      _contactName6 = prefs.getString("contactName6");
+      _contactName1 = prefs.getString("contactName1")!;
+      _contactName2 = prefs.getString("contactName2")!;
+      _contactName3 = prefs.getString("contactName3")!;
+      _contactName4 = prefs.getString("contactName4")!;
+      _contactName5 = prefs.getString("contactName5")!;
+      _contactName6 = prefs.getString("contactName6")!;
 
-      _contactNum1 = prefs.getString("contactNumber1");
-      _contactNum2 = prefs.getString("contactNumber2");
-      _contactNum3 = prefs.getString("contactNumber3");
-      _contactNum4 = prefs.getString("contactNumber4");
-      _contactNum5 = prefs.getString("contactNumber5");
-      _contactNum6 = prefs.getString("contactNumber6");
+      _contactNum1 = prefs.getString("contactNumber1")!;
+      _contactNum2 = prefs.getString("contactNumber2")!;
+      _contactNum3 = prefs.getString("contactNumber3")!;
+      _contactNum4 = prefs.getString("contactNumber4")!;
+      _contactNum5 = prefs.getString("contactNumber5")!;
+      _contactNum6 = prefs.getString("contactNumber6")!;
     });
 
   }
 
   _requestPermission() async {
     var status = await Permission.contacts.status;
-    if (status.isUndetermined){
-      Permission.contacts.request();
-    }
-    else if (status.isDenied){
+    if (status.isDenied){
       Permission.contacts.request();
     }
     else if (status.isPermanentlyDenied){

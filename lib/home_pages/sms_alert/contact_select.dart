@@ -6,29 +6,18 @@ import 'package:permission_handler/permission_handler.dart';
 
 class SelectContacts extends StatefulWidget {
 
-  // final List<Contact> contacts;
-  // final String itemNumber;
-  //
-  // SelectContacts(this.contacts, this.itemNumber);
-
   @override
   _SelectContactsState createState() => _SelectContactsState();
 }
 
 class _SelectContactsState extends State<SelectContacts> {
 
-  String _itemNumber;
-  List<Contact> _contacts;
+  List<Contact> _contacts = [];
 
   @override
   void initState() {
-    // TODO: implement initState
     _requestPermission();
     _fetchContacts();
-    // setState(() {
-    //   _itemNumber = widget.itemNumber;
-    //   _contacts = widget.contacts;
-    // });
     super.initState();
   }
 
@@ -48,8 +37,8 @@ class _SelectContactsState extends State<SelectContacts> {
           itemCount: _contacts.length,
           itemBuilder: (_, index){
             return _body(
-              _contacts[index].displayName,
-              _contacts[index].familyName,
+              _contacts[index].displayName!,
+              _contacts[index].familyName!,
             );
           }) : Center()
       ),
@@ -72,10 +61,7 @@ class _SelectContactsState extends State<SelectContacts> {
 
   _requestPermission() async {
     var status = await Permission.contacts.status;
-    if (status.isUndetermined){
-      Permission.contacts.request();
-    }
-    else if (status.isDenied){
+    if (status.isDenied){
       Permission.contacts.request();
     }
     else if (status.isPermanentlyDenied){

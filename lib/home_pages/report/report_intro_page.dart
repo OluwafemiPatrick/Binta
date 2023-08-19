@@ -36,7 +36,7 @@ class ReportIntro extends StatelessWidget {
                           child: Container(
                             height: MediaQuery.of(context).size.height * 0.60,
                             width: MediaQuery.of(context).size.width,
-                            child: Image.asset('lib/shared/assets/images/binta_logo_full_only.png'),
+                            child: Image.asset('lib/shared/assets/images/binta_logo_full.png'),
                           ),
                         ),
                         Container(
@@ -53,7 +53,7 @@ class ReportIntro extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       color: colorPrimaryPurple),
-                  child: FlatButton(
+                  child: TextButton(
                     child: Text("Proceed to Report Incident", style: TextStyle(
                         fontSize: 16.0, color: colorWhite, fontWeight: FontWeight.normal)),
                     onPressed: (){
